@@ -1,0 +1,30 @@
+{
+  "name": "menes1337/test",
+  "description": "PHP client library for accessing 3dCart Soap API, Soap Advanced API and REST API",
+  "keywords": [
+  ],
+  "license": "MIT",
+  "config": {
+    "platform": {
+      "php": "5.6.31"
+    }
+  },
+  "authors": [
+    {
+      "name": "Oliver Müller",
+      "email": "oliver+github@ebuuk.de"
+    }
+  ],
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ThreeDCart\\": "src/",
+      "tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=5.6"
+  }
+}
