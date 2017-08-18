@@ -21,7 +21,7 @@ git config user.name "Travis CI"
 git config user.email "travis@travis-ci.org"
 
 # If there are no changes to the compiled out (e.g. this is a README update) then just bail.
-if git diff --quiet; then
+if git diff; then
     echo "No changes to the output on this push; exiting."
     exit 0
 fi
@@ -29,7 +29,9 @@ fi
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
 git add -A .
-git commit -m "Deploy to GitHub}"
+git commit -m "Deploy to GitHub"
+
+echo "committing changes!"
 
 git remote add origin-push https://${GH_TOKEN}@github.com/Menes1337/test.git > /dev/null 2>&1
 git push --set-upstream origin-push $TRAVIS_BRANCH
