@@ -7,7 +7,7 @@ before_script:
 - composer install
 
 script:
-- ./vendor/bin/phpunit
+- ls -al
 
 jobs:
   include:
