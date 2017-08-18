@@ -11,10 +11,10 @@ script:
 
 jobs:
   include:
-  - stage: Unit Test + Code Style Fixing
-    php: 5.3
-  - stage: Unit Test + Code Style Fixing
-    php: 5.4
+#  - stage: Unit Test + Code Style Fixing
+#    php: 5.3
+#  - stage: Unit Test + Code Style Fixing
+#    php: 5.4
   - stage: Unit Test + Code Style Fixing
     php: 5.5
   - stage: Unit Test + Code Style Fixing
@@ -29,7 +29,7 @@ jobs:
     - ./php-cs-fixer fix --config=.php-cs.dist --cache-file=.php-cs.cache --diff --dry-run --verbose .
 #    - ./vendor/bin/phpunit
     - git status
-    - commit.sh
+    - ./commit.sh
   - stage: deploy
     php: 5.6
     script:
