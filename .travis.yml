@@ -26,8 +26,10 @@ jobs:
     script:
     - curl -L http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o php-cs-fixer
     - chmod a+x php-cs-fixer
-#    - ./php-cs-fixer fix --config=.php-cs.dist --cache-file=.php-cs.cache --diff --dry-run --verbose .
-#    - ./vendor/bin/phpunit
+    - ./php-cs-fixer fix --config=.php-cs.dist --cache-file=.php-cs.cache --diff --dry-run --verbose .
+    - ./vendor/bin/phpunit
+    - git status
+    - commit.sh
   - stage: deploy
     php: 5.6
     script:
@@ -47,3 +49,7 @@ notifications:
       secure: QtPivMlR7lnByzOgWxyz/o0u6ElqP76VJzMFkogAvQqF2QaaHdvkVsWCmSMCCh4Xk3+DvKNklU/QEg6u94+u35uaAu0Ic0pdrMYxKwtlyzaO9iPB8ErdQJFbJAWOmTYq30uiC3DNP3eKjlJRhTq7wPNtB9p4J9YVPCnvY6XgU5XzljteAseEgnYhBeh0m50SxZlbxksZgLjmiT+nKyfsREdBnR51erDNHLC6TE/pLAFfHDSzzwleR5c5/fEwaycu4KnBVDHNjU+FhvYjQNpcGAVTipVIq2rCjosSTt8/Xu1jqrE2CO7VG5f5NufHdaNJC29TvNNMyGA8He7rpZJvQokFG9upDW4e+baxImlX8YxlQYZCdVZ65aOqKaxp91HVQqzqpUZxRNG/G73UPRqb4ADMKY1D5+tXBC8tyj4pJcHG4mqpiOnmBlNOyZL4RM215mpop7ah/erj3v8MpS81utkkF2/XpvYhz1W2OW8043EtcH7Cg9sGr3j/iZUiAg93U+bwHrRc5Pnd2i/PGWWhmCe4GUSENT6ZNECSrTRtddrBCsiM6YziIe2gX8YremRm/8oS0M2d7Xm8M71VsEOK7Gqfi8T1ignn07RLDEX1D/Twz0gzO2je3aAQMTb1jPGLT+YU1m4AQvCgJD9ZL/a8FBF2NXy2vZNZaSE1abCa9V8=
   on_success: change
   on_failure: always
+
+env:
+  global:
+    secure: OXT0VvvVMqqYRiyZExAX2KQwJh4I2zTt9OUAIZrpGXNvVqAOuTx48QUs7gj+yMsoLpceD41vQLG2waYb2QnvzsxcKpgejOAYaWjwWZciJ02rtknkwZGmOBE62qOIJIUeHY9wWX5tjPCsToFni+YILptkLK8lTFjpdZVUKIzWOFONpFf9NshhvotmZRA+Z8Oo6Lf19JhKTcngt9Nb2qsQNdUvhlqiN++VhHCbYi0LOcigCtwr+fPRCDUKKlOYMFJNT48mRbT54nSsmZOCqBi2c8Z1R9igqspTjjaCnU/mpL1WA90D9RLIhCyGRbgR7maDMnggb6zSs7rUi/eR8/3c1pCAkCfDmZqOIWXNvUoOCaFp3ZtOJCOPF6xa5lHCNw2TyzzfOFDUQKattcTEdbYGk1XS8vENfYEMGIklxzVm+wjGJCeHCCfiVTaafWiRiVz8ZePtw9alZ1NF2MGnm6fMzIFBbvpwU1T51kyVanH58mFrWErqid9Yi+e/06M4bJ7Bed+2diEeblnfN9sYoFMM7RP7EZukRhLonnrc2X2xlRzqN8HSkzALkwSloJNWIjLtMfxOR0ZX0HffYbGm2FEH0eBgt/Lax8crLZ3+E9jJ8r+n6psio+Z+hfbpJ8JeCCts4n1oY48F/hT3sGHZHJtym/H0Q1buW7g3JoydPfYW77w=
