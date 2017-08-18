@@ -39,7 +39,7 @@ abstract class AbstractList
     /**
      * @return int
      */
-    public final function count()
+    final public function count()
     {
         return count($this->list);
     }
