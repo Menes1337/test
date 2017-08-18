@@ -28,6 +28,7 @@ jobs:
     script:
     - if [[ "$TRAVIS_TAG" ]]; then ./build_zip.sh ; fi
     - ls -al
+    - ls -al $TRAVIS_BUILD_DIR/shopgate-cart-integration-sdk
     deploy:
       provider: releases
       api_key:
