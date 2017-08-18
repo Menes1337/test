@@ -20,7 +20,7 @@ jobs:
     - stage: test
       php: 5.6
       script:
-      - ./php-cs-fixer fix --config=.php-cs.dist --cache-file=.php-cs.cache --diff --dry-run --verbose .
+      - ./php-cs-fixer fix --config=.php-cs.dist --cache-file=.php-cs.cache --diff --verbose .
     - stage: deploy
       php: 5.6
       script: ./build_zip.sh
