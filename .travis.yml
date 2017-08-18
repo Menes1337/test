@@ -5,7 +5,7 @@ language: php
 matrix:
   include:
   - php: 5.6
-    env: WITH_CODESTYLE_CHECK=true
+    env: WITH_CODESTYLE_CHECK=false
   - php: 7.0
 
 before_script:
@@ -19,7 +19,7 @@ script:
 
 jobs:
   include:
-    - stage: Deployment
+    - stage: deploy
       php: 5.6
       script: ./build_zip.sh
       deploy:
