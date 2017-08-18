@@ -4,12 +4,9 @@ language: php
 
 before_script:
 - phpenv config-rm xdebug.ini || return 0
-- curl -L http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o php-cs-fixer
-- chmod a+x php-cs-fixer
 - composer install
 
 script:
-- if [[ "$WITH_CODESTYLE_CHECK" == "true" ]]; then ./php-cs-fixer fix --config=.php-cs.dist --cache-file=.php-cs.cache --diff --dry-run --verbose .; fi
 - ./vendor/bin/phpunit
 
 jobs:
@@ -26,10 +23,13 @@ jobs:
     php: 7.1
   - stage: Unit Test + Code Style Fixing
     php: 5.6
-    env: WITH_CODESTYLE_CHECK=true
+    script:
+    - curl -L http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o php-cs-fixer
+    - chmod a+x php-cs-fixer
+    - ./php-cs-fixer fix --config=.php-cs.dist --cache-file=.php-cs.cache --diff --dry-run --verbose .
+    - ./vendor/bin/phpunit
   - stage: deploy
     php: 5.6
-    before_script: ignore;
     script:
     - if [[ "$TRAVIS_TAG" ]]; then ./build_zip.sh ; fi
     deploy:
