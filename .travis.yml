@@ -27,7 +27,7 @@ jobs:
   - stage: deploy
     php: 5.6
     script:
-    - if [[ "$DEPLOYMENT" == "true" && "$TRAVIS_TAG" ]]; then ./build_zip.sh ; fi
+    - if [[ "$TRAVIS_TAG" ]]; then ./build_zip.sh ; fi
     - ls -al
     deploy:
       provider: releases
