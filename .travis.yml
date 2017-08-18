@@ -29,7 +29,6 @@ jobs:
         file: shopgate-cart-integration-sdk.zip
         skip_cleanup: true
         on:
-          repo: Menes1337/test
           tags: true
 
 notifications:
