@@ -4,8 +4,7 @@ set -e # Exit with nonzero exit code if anything fails
 SOURCE_BRANCH="master"
 TARGET_BRANCH="gh-pages"
 
-echo $TRAVIS_BRANCH;
-
+echo $TRAVIS_BRANCH >&2;
 exit 0;
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
