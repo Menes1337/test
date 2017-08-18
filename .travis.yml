@@ -9,29 +9,34 @@ before_script:
 
 jobs:
   include:
-    - stage: test
-      php: 5.3
-      script:
-      - if [[ "$WITH_CODESTYLE_CHECK" == "true" ]]; then ./php-cs-fixer fix --config=.php-cs.dist --cache-file=.php-cs.cache --diff --dry-run --verbose .; fi
-    - stage: test
-      php: 5.4
-      script:
-      - if [[ "$WITH_CODESTYLE_CHECK" == "true" ]]; then ./php-cs-fixer fix --config=.php-cs.dist --cache-file=.php-cs.cache --diff --dry-run --verbose .; fi
-    - stage: test
-      php: 5.6
-      script:
-      - ./php-cs-fixer fix --config=.php-cs.dist --cache-file=.php-cs.cache --diff --verbose .
-    - stage: deploy
-      php: 5.6
-      script: if [[ "$DEPLOYMENT" == "true" && "$TRAVIS_TAG" ]]; then ./build_zip.sh ; fi
-      deploy:
-        provider: releases
-        api_key:
-          secure: o0fajv0gXUPWRk1iNmoDnFJpyK9LYSUTqe1H+oAcsiOWeF7K0oIMlWEy2m7K3Vf3lhjDfqNZk2OtlQ58+N4cb+KpsfOuVcvBDWcG3GU94ASnbytWH+TnQzcUm5sF9MXvDQGKzseXArIIKTs0+yBkm/lTwuEP4hWhqk6+zuWax+j/uh7El3Blvn+6n4grwu5GItiLgFXGbaYYwEwb73zTJZ5RviMnMgCeqsDM0SYTSLa6nDCNe8PESADJnPwL/X74hqequwF7Sga6GbYhP0ys1avLsirqb8HMFxBz8JFB34XC2xmQABa+DfHJhtCrqu6VsFVvT5yfKfzgmqIeyDyhWAQHMs6kjXoiTt+Lwz+j88U/ktJ5UduJTMyuoLsQ742yIWxHEjmw/IqtiJmHUn6BL0sl8gxqGgLcQWfDmd155/jwT1PhbNJQBiDIlBNHhlDTyLO44NYvWECeWWX9DBqf4UMOdL2B7mzqtvRo0eMmScmm2pKGdicfr3fhqUHw418ZVjcsci/y18apaQCd9L1qN9sEBKRsMMuerEsJdfwipZM1P0dWhevLkHSXjGFcrY5x1tA/EyMQoz5eVItNsBc29fJgcYcPTSbjwH02mLHFtIvnGnRYqJy4qvGJp3RONkfpvyefjpQFocl5P4rTgq/rNod9PJv1WMVv0BSvy0A+Y+8=
-        file: shopgate-cart-integration-sdk.zip
-        skip_cleanup: true
-        on:
-          tags: true
+  - stage: test
+    php: 5.3
+    script:
+    - if [[ "$WITH_CODESTYLE_CHECK" == "true" ]]; then ./php-cs-fixer fix --config=.php-cs.dist
+      --cache-file=.php-cs.cache --diff --dry-run --verbose .; fi
+  - stage: test
+    php: 5.4
+    script:
+    - if [[ "$WITH_CODESTYLE_CHECK" == "true" ]]; then ./php-cs-fixer fix --config=.php-cs.dist
+      --cache-file=.php-cs.cache --diff --dry-run --verbose .; fi
+  - stage: test
+    php: 5.6
+    script:
+    - ./php-cs-fixer fix --config=.php-cs.dist --cache-file=.php-cs.cache --diff --verbose
+      .
+  - stage: deploy
+    php: 5.6
+    script:
+    - if [[ "$DEPLOYMENT" == "true" && "$TRAVIS_TAG" ]]; then ./build_zip.sh ; fi
+    - ls -al
+    deploy:
+      provider: releases
+      api_key:
+        secure: Xxi8dkPAKY5iKrJ/IHgIyqI5am6Gos4BPqRAIoPYKVuDOpP7YSWnO6ULYlVflmLiSxPmhC6N0wwiW7wgwkZojCXwkhfL0BYM3kMvJW8mEmD63meFvUOUbHCrFVOcRCly4eWP8ZDyFDQpPCJvi0q1gq5vvwfX0iN5cuZ52s9yQSSABtPp+SMFb4AfQz5y+ie2V1DdE1wkdc49WprTlp/ucXo1st6YgU2qGaTPyzFsYAJONOjR2CnTQm8gZ/hHUYC2mEVo98AKNIUU/nLDKPKPuniSq1+UsM9kHkJhS/5AdXLrTcX7tmzcrMGsXj363n/eaHaGJsM/46kNcQaTprJth4jYvsD62l06+Aqk+85AI9U0PxygDflqjcDdUv6Ref/Uch32zTxISZqTSW3DzqndmDXU0Mvd+Br53WUn7daveYpAT46/1ynyrXVq0eXo3/1lltDdNbBocQ2Su2WTW1bB1DF0hOVKMWQlSs3Wj+Dno9BmuCgEqjLh/vrCwdvmufjSywVCCR+gLk0x70HJ1DL+EMvR3LRsOo3+N2LmfxJBTixII0cl1SdoNQtDRQFF7ny0zk9+Ml+17FsU3SUbE1aFAmG8jBkPt4/CuyCXN9snxaT6I/kR1z0M43c+3PWRHBof2LlDOTpTVwQsbbfbmHpuB/3+c9z6XZxpPK635DQdyK4=
+      file: shopgate-cart-integration-sdk.zip
+      skip_cleanup: true
+      on:
+        tags: true
 
 notifications:
   slack:
