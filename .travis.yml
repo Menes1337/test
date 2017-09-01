@@ -30,12 +30,12 @@ jobs:
     deploy:
       provider: releases
       api_key:
-        secure: mT4wgnW0coSA6WFcL6wx7BV6hHn+NOeAF+mWAooyaNHwXAHK4x2y/GVtz4tVZ6QqjGyDYyswWHq0wUt6UWruahX4O59a7X3olECow7aMdt4WsqqzCyAb9uIFr5ELAFvOu8TLNELXIzibkSRckcAWmObtnGg3FpAieOWUBl7IIzR2mGdanYePyjbf3XyoHVuwrBRpdSyMkaduYSE3UwECQp6KglXkxPNKrcgfgOS1Q3ZH6J9PKTiGFe9az5wAoGvbTJyS2AQGf+eHTF2IG4nR1EasUkBLZuEowc3yyJYmyOQb/uupIuI90zFu61+46NY+UjVJvN7rqmZoQ/K9gr2E+nst6kOKbHFLg4unNfOazAd2KSqR8PFaopNThuqd6tKikn7PxcJMDtib2JCLiCZPVno2IEI2nRneKx9E7ii4mTNhOIg3PCJex3SNlj18UGhQyy3Tc1N349M8dsPTpXQlLAIXKIlpDpI+LbMgY7SpqBtrswnZKTIjTQbyipg3vgjxEaOG+fnefRCF+1ZJ/JSl2qfkCWoYaLeCMK6keljVv0DVKZjmOEHvaI24lukpIkBKKhduHuEbfsqWGu5VxFKg6clvJIG0d1TLOjPVW4TWNMAqky6ACrwlVYqSPPgQKVGchkS+l/HzROG3SrhLDeYZCMPnWZHJ9BzgAdxiot8qWyw=
+        secure: dVA1TQcoh2IlFwhOG8v97vgxdWaaGdjKK+s/WcF/exWsr3PnPH7eNWaoEJEVYgyGzJn1MqXQNBJv7rFdAg4ZWzeT185FdQgYKIquaAMABtzeWhNWgimekQMnd2Fotk1wkYihKx28JNOk/J4sP6nVTypqJoeIeB2WAZpTvlacx+OsWtApURzrK/WWT0dUyBXQZX+Qb5SMTi954DOpiugdijswCvztzKZYLc+KgjEPJ5lSJBOitxTyfeURTLgeAqBpIO48p1+jddzwORc9eXSxnQlhplNJKQ33Yc+sWv1osPLWxPB5a5x6IgqbHP8tzsChTvaCWSgWUEXgvq8rMTkXaZtBQoxpjeSjppy5x5Q4GReoDdjNzA5buDQQiK/q4VKK6tn15Na6FYa6YAMF8qMT9of1g7/Km/F5B9nuLXCJZ4ikpW+32zg0q+IRh29fwhcmzEep25srERhF4SJC7VQRTnkb3XHsPkJtiqKLGxyilfVKb3gM8JiwJt/snY+a6X1HpUI1AWZxm1nmhECKXkAwdiwEj6xRVxV5LqjIndHm67J7JzEXjvFGT3iOLVwjh/lHlSCA6P195wNrbXv4PcpTHZA5NvrLKr+CsPGuopko1sbFf3RJW/Jg64pwNGibLqG8xTF02isqx2Ezr1KFD8JHfxOJgXe23fGEMc7vxYNBbko=
       file: shopgate-cart-integration-sdk.zip
       skip_cleanup: true
       on:
         tags: true
-        on: shopgate/cart-integration-sdk
+        repo: shopgate/cart-integration-sdk
 
 notifications:
   slack:
