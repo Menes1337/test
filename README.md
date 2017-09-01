@@ -1,4 +1,4 @@
-# Shopgate Cart Integration SDK
+# Shopgate Cart Integration SDK test
 
 [![GitHub license](http://dmlc.github.io/img/apache2.svg)](LICENSE.md)
 [![Build Status](https://travis-ci.org/shopgate/cart-integration-sdk.svg?branch=master)](https://travis-ci.org/shopgate/cart-integration-sdk)
