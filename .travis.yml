@@ -35,7 +35,6 @@ jobs:
       skip_cleanup: true
       on:
         tags: true
-        repo: shopgate/cart-integration-sdk
 
 notifications:
   slack:
